@@ -1,0 +1,16 @@
+.Navbar {
+    width: 100%;
+    height: var(--navbar-height);
+    background: var(--inverted-bg-color);
+    padding: 16px;
+    position: sticky;
+    top: 0;
+    display: flex;
+    justify-content: end;
+}
+
+.link {
+    .Navbar > &:not(:last-of-type) {
+        margin-right: 16px;
+    }
+}
