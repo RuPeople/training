@@ -9,7 +9,10 @@
         //позволяет не только ts, но и js
         "allowJs": true,
         "moduleResolution": "node",
-        /*"baseUrl": ".",*/
+        "baseUrl": ".",
+        "paths": {
+            "*": ["./src/*"]
+        },
         // import вместо require в webpack.config
         "esModuleInterop": true,
         // import без *
