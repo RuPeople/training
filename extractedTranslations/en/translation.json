@@ -6,5 +6,8 @@
   "Loading": "Loading",
   "MainPage": "MainPage",
   "NotFoundPage": "NotFoundPage",
-  "Toggle": "Toggle"
+  "Reload page": "Reload page",
+  "Throw error": "Throw error",
+  "Toggle": "Toggle",
+  "Uncaught error": "Uncaught error"
 }
