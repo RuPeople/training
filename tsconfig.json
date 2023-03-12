@@ -24,7 +24,7 @@
         "./config/**/*.ts",
         "./src/**/*.tsx",
         "./babel.config.js",
-        "webpack.config.ts"
+        "./webpack.config.ts",
     ],
     "ts-node": {
         "compilerOptions": {
