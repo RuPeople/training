@@ -10,6 +10,7 @@ module.exports = {
         'airbnb-typescript',
         'plugin:import/typescript',
         'plugin:i18next/recommended',
+        'plugin:jest-dom/recommended',
     ],
     parser: '@typescript-eslint/parser',
     parserOptions: {
@@ -25,6 +26,7 @@ module.exports = {
         'react-hooks',
         'eslint-plugin-import',
         'unused-imports',
+        'jest-dom',
     ],
     rules: {
         indent: 'off',
@@ -60,6 +62,10 @@ module.exports = {
         ],
         'i18next/no-literal-string': ['error', { markupOnly: true }],
         'max-len': ['error', { ignoreComments: true, code: 100 }],
+        'jest-dom/prefer-checked': 'error',
+        'jest-dom/prefer-enabled-disabled': 'error',
+        'jest-dom/prefer-required': 'error',
+        'jest-dom/prefer-to-have-attribute': 'error',
     },
     globals: {
         __IS_DEV__: true,

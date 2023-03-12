@@ -1,5 +1,5 @@
 import { classNames } from 'shared/lib/classNames/classNames';
-import Link, { LinkTheme } from 'shared/ui/Link/Link';
+import { Link, LinkTheme } from 'shared/ui/Link/Link';
 import { ThemeSwitcher } from 'widgets/ThemeSwitcher';
 import { useTranslation } from 'react-i18next';
 import cls from './Navbar.module.scss';
@@ -31,5 +31,3 @@ export const Navbar = ({ className }: PropsT) => {
         </header>
     );
 };
-
-export default Navbar;

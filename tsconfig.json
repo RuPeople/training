@@ -20,16 +20,18 @@
     },
     "include": [
         ".eslintrc.js",
+        "./config/jest/setupTests.ts",
         "./src/**/*.ts",
         "./src/**/*.tsx",
         "./config/**/*.ts",
         "./config/jest/jest.config.ts",
+        "./config/jest/jestEmptyComponent.tsx",
         "./babel.config.js",
-        "./webpack.config.ts"
+        "./webpack.config.ts",
     ],
     "ts-node": {
         "compilerOptions": {
             "module": "CommonJS"
         }
-    }
+    },
 }

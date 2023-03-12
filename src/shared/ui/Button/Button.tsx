@@ -29,5 +29,3 @@ export const Button: FC <PropsT> = (props) => {
         </button>
     );
 };
-
-export default Button;
