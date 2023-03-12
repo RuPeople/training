@@ -2,6 +2,7 @@ module.exports = {
     env: {
         browser: true,
         es2021: true,
+        jest: true,
     },
     extends: [
         'plugin:@typescript-eslint/recommended',
@@ -31,7 +32,10 @@ module.exports = {
         'react/jsx-indent': 'off',
         'react/jsx-indent-props': [1, 4],
         'react/react-in-jsx-scope': 'off',
-        'react/jsx-filename-extension': [2, { extensions: ['.js', '.jsx', '.tsx'] }],
+        'react/jsx-filename-extension': [
+            2,
+            { extensions: ['.js', '.jsx', '.tsx'] },
+        ],
         'react/prefer-default-export': 'off',
         'react/require-default-props': 'off',
         'react/jsx-props-no-spreading': 'warn',
@@ -48,10 +52,14 @@ module.exports = {
         'unused-imports/no-unused-vars': [
             'error',
             {
-                vars: 'all', varsIgnorePattern: '^_', args: 'after-used', argsIgnorePattern: '^_',
+                vars: 'all',
+                varsIgnorePattern: '^_',
+                args: 'after-used',
+                argsIgnorePattern: '^_',
             },
         ],
         'i18next/no-literal-string': ['error', { markupOnly: true }],
+        'max-len': ['error', { ignoreComments: true }],
     },
     globals: {
         __IS_DEV__: true,
