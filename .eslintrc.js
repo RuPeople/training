@@ -1,0 +1,48 @@
+module.exports = {
+    env: {
+        browser: true,
+        es2021: true,
+    },
+    extends: [
+        'plugin:@typescript-eslint/recommended',
+        'airbnb',
+        'airbnb-typescript',
+        'plugin:import/typescript',
+    ],
+    parser: '@typescript-eslint/parser',
+    parserOptions: {
+        project: './tsconfig.json',
+        tsconfigRootDir: '.',
+    },
+    plugins: [
+        '@typescript-eslint',
+        'import',
+        'jsx-a11y',
+        'react',
+        'react-hooks',
+        'eslint-plugin-import',
+    ],
+    rules: {
+        indent: 'off',
+        '@typescript-eslint/indent': 'off',
+        'react/jsx-indent': 'off',
+        'react/jsx-indent-props': [1, 4],
+        'react/react-in-jsx-scope': 'off',
+        'react/jsx-filename-extension': [2, { extensions: ['.js', '.jsx', '.tsx'] }],
+        'react/prefer-default-export': 'off',
+        'react/require-default-props': 'off',
+        'react/jsx-props-no-spreading': 'warn',
+        'react/function-component-definition': 'off',
+        'arrow-body-style': 'off',
+        'import/extensions': 'off',
+        'import/no-extraneous-dependencies': 'off',
+        'import/no-named-as-default': 'off',
+        'import/prefer-default-export': 'off',
+        'no-underscore-dangle': 'off',
+        '@typescript-eslint/no-unused-vars': 'warn',
+        '@typescript-eslint/naming-convention': 'warn',
+    },
+    globals: {
+        __IS_DEV__: true,
+    },
+};
