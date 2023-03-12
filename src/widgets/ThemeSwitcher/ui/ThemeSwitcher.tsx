@@ -1,15 +1,15 @@
-import {classNames} from "shared/lib/classNames/classNames";
-import cls from './ThemeSwitcher.module.scss'
-import {Theme, useTheme} from "app/providers/ThemeProvider";
-import Icon from 'shared/assets/icons/theme-switcher.svg'
-import Button, {ThemeButton} from "shared/ui/Button/Button";
+import { classNames } from 'shared/lib/classNames/classNames';
+import { Theme, useTheme } from 'app/providers/ThemeProvider';
+import Icon from 'shared/assets/icons/theme-switcher.svg';
+import Button, { ThemeButton } from 'shared/ui/Button/Button';
+import cls from './ThemeSwitcher.module.scss';
 
 type PropsT = {
     className?: string
-}
+};
 
-export const ThemeSwitcher = ({className}: PropsT) => {
-    const { theme, handleSwitchTheme } = useTheme()
+export const ThemeSwitcher = ({ className }: PropsT) => {
+    const { theme, handleSwitchTheme } = useTheme();
 
     return (
         <Button
@@ -19,7 +19,7 @@ export const ThemeSwitcher = ({className}: PropsT) => {
         >
             <Icon
                 width={16}
-                fill={theme === Theme.LIGHT ? `var(--inverted-primary-color)`: `var(--inverted-primary-color)`}
+                fill={theme === Theme.LIGHT ? 'var(--inverted-primary-color)' : 'var(--inverted-primary-color)'}
             />
         </Button>
     );
