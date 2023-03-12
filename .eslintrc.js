@@ -8,6 +8,7 @@ module.exports = {
         'airbnb',
         'airbnb-typescript',
         'plugin:import/typescript',
+        'plugin:i18next/recommended',
     ],
     parser: '@typescript-eslint/parser',
     parserOptions: {
@@ -17,10 +18,12 @@ module.exports = {
     plugins: [
         '@typescript-eslint',
         'import',
+        'i18next',
         'jsx-a11y',
         'react',
         'react-hooks',
         'eslint-plugin-import',
+        'unused-imports',
     ],
     rules: {
         indent: 'off',
@@ -41,6 +44,14 @@ module.exports = {
         'no-underscore-dangle': 'off',
         '@typescript-eslint/no-unused-vars': 'warn',
         '@typescript-eslint/naming-convention': 'warn',
+        'unused-imports/no-unused-imports': 'error',
+        'unused-imports/no-unused-vars': [
+            'error',
+            {
+                vars: 'all', varsIgnorePattern: '^_', args: 'after-used', argsIgnorePattern: '^_',
+            },
+        ],
+        'i18next/no-literal-string': ['error', { markupOnly: true }],
     },
     globals: {
         __IS_DEV__: true,
