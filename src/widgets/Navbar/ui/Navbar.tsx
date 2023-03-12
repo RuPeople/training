@@ -14,8 +14,20 @@ export const Navbar = ({ className }: PropsT) => {
     return (
         <header className={classNames(cls.Navbar, {}, [className])}>
             <ThemeSwitcher />
-            <Link to="/" theme={LinkTheme.PRIMARY} className={classNames(cls.link)}>{t('Home')}</Link>
-            <Link to="/about" theme={LinkTheme.SECONDARY} className={classNames(cls.link)}>{t('About')}</Link>
+            <Link
+                to="/"
+                theme={LinkTheme.PRIMARY}
+                className={classNames(cls.link)}
+            >
+                {t('Home')}
+            </Link>
+            <Link
+                to="/about"
+                theme={LinkTheme.SECONDARY}
+                className={classNames(cls.link)}
+            >
+                {t('About')}
+            </Link>
         </header>
     );
 };

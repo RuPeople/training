@@ -4,5 +4,7 @@
   "Home": "Home",
   "Language": "Language",
   "Loading": "Loading",
-  "MainPage": "MainPage"
+  "MainPage": "MainPage",
+  "NotFoundPage": "NotFoundPage",
+  "Toggle": "Toggle"
 }
