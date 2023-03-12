@@ -21,10 +21,11 @@
     "include": [
         ".eslintrc.js",
         "./src/**/*.ts",
-        "./config/**/*.ts",
         "./src/**/*.tsx",
+        "./config/**/*.ts",
+        "./config/jest/jest.config.ts",
         "./babel.config.js",
-        "./webpack.config.ts",
+        "./webpack.config.ts"
     ],
     "ts-node": {
         "compilerOptions": {
