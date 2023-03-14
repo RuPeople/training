@@ -28,5 +28,3 @@ export const Link: FC<PropsT> = (props) => {
         </BaseLink>
     );
 };
-
-export default Link;

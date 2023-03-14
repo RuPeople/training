@@ -24,12 +24,14 @@
         "./src/**/*.tsx",
         "./config/**/*.ts",
         "./config/jest/jest.config.ts",
+        "./config/jest/setupTests.ts",
+        "./config/jest/jestEmptyComponent.tsx",
         "./babel.config.js",
-        "./webpack.config.ts"
+        "./webpack.config.ts",
     ],
     "ts-node": {
         "compilerOptions": {
             "module": "CommonJS"
         }
-    }
+    },
 }
