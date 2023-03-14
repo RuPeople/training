@@ -1,9 +1,20 @@
 .Button {
-    color: var(--primary-color);
+    color: var(--bg-color);
+    background: var(--primary-color);
+    font-weight: var(--font-weight-bold);
+    padding: 14px 20px;
+    border-radius: 14px;
 }
 
 .clear {
+    color: var(--primary-color);
     border: none;
     background: none;
     outline: none;
+}
+
+.outline {
+    background: none;
+    border: 2px solid var(--primary-color);
+    color: var(--primary-color);
 }
