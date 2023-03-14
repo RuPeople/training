@@ -1,4 +1,4 @@
-import ErrorBoundaryButton from './ui/ErrorBoundaryButton';
+import { ErrorBoundaryButton } from './ui/ErrorBoundaryButton';
 
 export {
     ErrorBoundaryButton,
