@@ -15,8 +15,12 @@ type PropsT = LinkProps & {
 
 export const Link: FC<PropsT> = (props) => {
     const {
- to, className, theme = LinkTheme.PRIMARY, children, ...otherProps
-} = props;
+        to,
+        className,
+        theme = LinkTheme.PRIMARY,
+        children,
+        ...otherProps
+    } = props;
 
     return (
         <BaseLink

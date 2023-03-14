@@ -1,6 +1,6 @@
 import { Suspense } from 'react';
 import { routeConfig } from 'shared/config/routeConfig/routeConfig';
-import { PageLoader } from 'widgets/PageLoader/PageLoader';
+import { PageLoader } from 'widgets/PageLoader/ui/PageLoader';
 import { Route, Routes } from 'react-router-dom';
 
 const AppRouter = () => {
