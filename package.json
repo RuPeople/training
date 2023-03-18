@@ -12,8 +12,9 @@
     "lint:scss": "npx stylelint \"**/*.scss\"\n\n",
     "lint:scss:fix": "npx stylelint \"**/*.scss\"\n\n --fix",
     "test:unit": "jest --config ./config/jest/jest.config.ts",
-    "test:uiu": "npx loki test",
-    "test:uiu:ok": "npx loki approve",
+    "test:ui": "npx loki test",
+    "test:ui:ok": "npx loki approve",
+    "test:ui:ci": "npx loki --requireReference --reactUri file:./storybook-static",
     "storybook": "start-storybook -p 6006 -c ./config/storybook",
     "storybook:build": "build-storybook -c ./config/storybook"
   },
@@ -92,16 +93,17 @@
     "react-router-dom": "^6.8.1"
   },
   "loki": {
+    "diffingEngine": "pixelmatch",
     "configurations": {
-      "chrome.laptop": {
-        "target": "chrome.app",
-        "width": 1366,
-        "height": 768,
+      "chrome.desktop": {
+        "target": "chrome.docker",
+        "width": 1920,
+        "height": 1080,
         "deviceScaleFactor": 1,
         "mobile": false
       },
       "chrome.iphone7": {
-        "target": "chrome.app",
+        "target": "chrome.docker",
         "preset": "iPhone 7"
       }
     }
