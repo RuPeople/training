@@ -11,6 +11,7 @@ module.exports = {
         'plugin:import/typescript',
         'plugin:i18next/recommended',
         'plugin:jest-dom/recommended',
+        'plugin:storybook/recommended',
     ],
     parser: '@typescript-eslint/parser',
     parserOptions: {
@@ -34,10 +35,9 @@ module.exports = {
         'react/jsx-indent': 'off',
         'react/jsx-indent-props': [1, 4],
         'react/react-in-jsx-scope': 'off',
-        'react/jsx-filename-extension': [
-            2,
-            { extensions: ['.js', '.jsx', '.tsx'] },
-        ],
+        'react/jsx-filename-extension': [2, {
+          extensions: ['.js', '.jsx', '.tsx'],
+        }],
         'react/prefer-default-export': 'off',
         'react/require-default-props': 'off',
         'react/jsx-props-no-spreading': 'warn',
@@ -51,22 +51,35 @@ module.exports = {
         '@typescript-eslint/no-unused-vars': 'warn',
         '@typescript-eslint/naming-convention': 'warn',
         'unused-imports/no-unused-imports': 'error',
-        'unused-imports/no-unused-vars': [
-            'error',
-            {
-                vars: 'all',
-                varsIgnorePattern: '^_',
-                args: 'after-used',
-                argsIgnorePattern: '^_',
-            },
-        ],
-        'i18next/no-literal-string': ['error', { markupOnly: true }],
-        'max-len': ['error', { ignoreComments: true, code: 100 }],
+        'unused-imports/no-unused-vars': ['error', {
+            vars: 'all',
+            varsIgnorePattern: '^_',
+            args: 'after-used',
+            argsIgnorePattern: '^_',
+        }],
+        'i18next/no-literal-string': ['error', {
+            markupOnly: true,
+        }],
+        'max-len': ['error', {
+            ignoreComments: true,
+            code: 100,
+        }],
         'jest-dom/prefer-checked': 'error',
         'jest-dom/prefer-enabled-disabled': 'error',
         'jest-dom/prefer-required': 'error',
         'jest-dom/prefer-to-have-attribute': 'error',
     },
+    overrides: [
+        {
+            files: [
+                '*.stories.ts',
+                '*.stories.tsx',
+            ],
+            rules: {
+                'react/jsx-props-no-spreading': 'off',
+            },
+        },
+    ],
     globals: {
         __IS_DEV__: true,
     },
