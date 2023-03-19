@@ -1,0 +1,19 @@
+.Modal {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    z-index: var(--z-index-modal);
+}
+
+.overlay {
+    width: 100%;
+    height: 100%;
+    background: var(--bg-color);
+    opacity: 0.5;
+}
+
+.content {
+    border-radius: var(--border-radius-m);
+}
