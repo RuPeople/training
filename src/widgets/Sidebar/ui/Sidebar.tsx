@@ -16,11 +16,11 @@ import { Icon } from 'shared/ui/Icon/Icon';
 import cls from './Sidebar.module.scss';
 
 interface SidebarProps {
-    className?: string
+    className?: string;
 }
 
 export const Sidebar = ({ className }: SidebarProps) => {
-    const { t } = useTranslation('header');
+    const { t } = useTranslation();
     const [collapsed, setCollapsed] = useState(false);
 
     const onToggle = () => {
