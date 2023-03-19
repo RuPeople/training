@@ -19,8 +19,8 @@ export const ThemeSwitcher = ({ className }: ThemeSwitcherProps) => {
             <Icon
                 width={16}
                 fill={theme === Theme.LIGHT
-                    ? 'var(--inverted-primary-color)'
-                    : 'var(--inverted-primary-color)'}
+                    ? 'var(--primary-color)'
+                    : 'var(--primary-color)'}
             />
         </button>
     );
