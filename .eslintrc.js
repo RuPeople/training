@@ -12,6 +12,7 @@ module.exports = {
         'plugin:i18next/recommended',
         'plugin:jest-dom/recommended',
         'plugin:storybook/recommended',
+        'plugin:react-hooks/recommended',
     ],
     parser: '@typescript-eslint/parser',
     parserOptions: {
@@ -68,6 +69,11 @@ module.exports = {
         'jest-dom/prefer-enabled-disabled': 'error',
         'jest-dom/prefer-required': 'error',
         'jest-dom/prefer-to-have-attribute': 'error',
+        'react-hooks/rules-of-hooks': 'error',
+        'react-hooks/exhaustive-deps': 'error',
+        // TODO: REMOVE THIS RULES
+        'jsx-a11y/no-static-element-interactions': 'off',
+        'jsx-a11y/click-events-have-key-events': 'off',
     },
     overrides: [
         {
