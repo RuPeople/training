@@ -1,6 +1,7 @@
 import { addDecorator } from '@storybook/react';
 import { StyleDecorator } from 'shared/config/storybook/StyleDecorator';
 import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator';
+import { StoreDecorator } from 'shared/config/storybook/StoreDecorator';
 import { RouterDecorator } from '../../src/shared/config/storybook/RouterDecorator';
 import { Theme } from '../../src/app/providers/ThemeProvider';
 
@@ -17,3 +18,4 @@ export const parameters = {
 addDecorator(StyleDecorator);
 addDecorator(ThemeDecorator(Theme.LIGHT));
 addDecorator(RouterDecorator);
+addDecorator(StoreDecorator);
