@@ -1,20 +1,36 @@
-import {classNames} from "shared/lib/classNames/classNames";
-import cls from './Navbar.module.scss'
-import Link, {LinkTheme} from "shared/ui/Link/Link";
-import {ThemeSwitcher} from "widgets/ThemeSwitcher";
+import { classNames } from 'shared/lib/classNames/classNames';
+import { Button } from 'shared/ui/Button/Button';
+import { useTranslation } from 'react-i18next';
+import { useCallback, useState } from 'react';
+import { LoginModal } from 'features/AuthByUsername';
+import cls from './Navbar.module.scss';
 
 type PropsT = {
     className?: string
-}
+};
 
-export const Navbar = ({className}: PropsT) => {
+export const Navbar = ({ className }: PropsT) => {
+    const { t } = useTranslation('header');
+    const [isAuthModal, setIsAuthModal] = useState(false);
+
+    const onOpenModal = useCallback(() => {
+        setIsAuthModal(true);
+    }, []);
+
+    const onCloseModal = useCallback(() => {
+        setIsAuthModal(false);
+    }, []);
+
     return (
         <header className={classNames(cls.Navbar, {}, [className])}>
-            <ThemeSwitcher />
-            <Link to="/" theme={LinkTheme.PRIMARY} className={classNames(cls.link)}>Главная</Link>
-            <Link to="/about" theme={LinkTheme.SECONDARY} className={classNames(cls.link)}>О сайте</Link>
+            <Button onClick={onOpenModal}>
+                {t('Log in')}
+            </Button>
+            <LoginModal
+                className={cls.authModal}
+                isOpen={isAuthModal}
+                onClose={onCloseModal}
+            />
         </header>
     );
 };
-
-export default Navbar;

@@ -16,11 +16,21 @@
         // import вместо require в webpack.config
         "esModuleInterop": true,
         // import без *
-        "allowSyntheticDefaultImports": true
+        "allowSyntheticDefaultImports": true,
     },
+    "include": [
+        ".eslintrc.js",
+        "./src/**/*.ts",
+        "./src/**/*.tsx",
+        "./config/**/*.ts",
+        "./config/**/*.tsx",
+        "./babel.config.js",
+        "./webpack.config.ts",
+        "scripts/generate-visual-json-report.js"
+    ],
     "ts-node": {
         "compilerOptions": {
             "module": "CommonJS"
         }
-    }
+    },
 }
