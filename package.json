@@ -79,6 +79,7 @@
     "reg-cli": "^0.17.7",
     "sass": "^1.58.0",
     "sass-loader": "^13.2.0",
+    "storybook-addon-state": "^1.0.3",
     "style-loader": "^3.3.1",
     "stylelint": "^15.2.0",
     "stylelint-config-standard-scss": "^7.0.1",

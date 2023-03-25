@@ -1,0 +1,42 @@
+.inputWrapper {
+    position: relative;
+    display: flex;
+}
+
+.label {
+    color: var(--secondary-color);
+    position: absolute;
+    top: 15.5px;
+    left: 16px;
+    transition: var(--transition-fast);
+    cursor: pointer;
+}
+
+.label.focus {
+    top: 5px;
+    font-size: 11px;
+    transition: var(--transition-fast);
+}
+
+.Input {
+    padding: 13px 16px;
+    border-radius: var(--border-radius-s);
+    border: 0;
+    font: var(--font-m);
+    color: var(--primary-color);
+    flex-grow: 1;
+}
+
+.Input.withPlaceholder {
+    padding: 22px 16px 13px;
+}
+
+.Input:focus-visible {
+    outline: var(--primary-color) auto 1px;
+}
+
+.clearButton {
+    position: absolute;
+    top: 15.5px;
+    right: 16px;
+}

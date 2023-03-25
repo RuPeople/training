@@ -10,8 +10,11 @@
   "MainPage": "MainPage",
   "Not found": "Not found",
   "NotFoundPage": "NotFoundPage",
+  "Password": "Password",
   "Reload page": "Reload page",
   "Throw error": "Throw error",
   "Toggle": "Toggle",
-  "Uncaught error": "Uncaught error"
+  "Uncaught error": "Uncaught error",
+  "Username": "Username",
+  "login": "login"
 }
