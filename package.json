@@ -72,6 +72,7 @@
     "jest-environment-jsdom": "^29.5.0",
     "loki": "^0.31.1",
     "mini-css-extract-plugin": "^2.7.2",
+    "postcss": "^8.4.21",
     "reg-cli": "^0.17.7",
     "sass": "^1.58.0",
     "sass-loader": "^13.2.0",
@@ -88,12 +89,14 @@
     "webpack-dev-server": "^4.11.1"
   },
   "dependencies": {
+    "@reduxjs/toolkit": "^1.9.3",
     "i18next": "^22.4.11",
     "i18next-browser-languagedetector": "^7.0.1",
     "i18next-http-backend": "^2.1.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-i18next": "^12.2.0",
+    "react-redux": "^8.0.5",
     "react-router-dom": "^6.8.1"
   },
   "loki": {
