@@ -1,24 +1,34 @@
 import { classNames } from 'shared/lib/classNames/classNames';
 import {
- FC, PropsWithChildren, useCallback, useEffect,
+    FC, PropsWithChildren, useCallback, useEffect, useRef, useState,
 } from 'react';
 import { Portal } from 'shared/ui/Portal/Portal';
+import { ANIMATION_DELAY_MEDIUM } from 'shared/const/const';
 import cls from './Modal.module.scss';
 
 interface ModalProps extends PropsWithChildren {
-    className?: string
+    className?: string;
     isOpen?: boolean;
-    onClose?: () => void
+    onClose?: () => void;
+    lazy?: boolean;
 }
 
 export const Modal: FC<ModalProps> = (props) => {
     const {
-        className, children, isOpen, onClose,
+        className, children, isOpen, onClose, lazy,
     } = props;
+    const [isMounted, setIsMounted] = useState(false);
+    const [isOpened, setIsOpened] = useState(false);
+    const timerRef = useRef<ReturnType<typeof setTimeout>>();
 
     const closeHandler = useCallback(() => {
         if (onClose) {
-            onClose();
+            setIsOpened(false);
+
+            timerRef.current = setTimeout(() => {
+                onClose();
+                setIsMounted(false);
+            }, ANIMATION_DELAY_MEDIUM);
         }
     }, [onClose]);
 
@@ -27,7 +37,7 @@ export const Modal: FC<ModalProps> = (props) => {
     };
 
     const mods: Record<string, boolean> = {
-        [cls.opened]: isOpen,
+        [cls.opened]: isOpened,
     };
 
     const onKeyDown = useCallback((e: KeyboardEvent) => {
@@ -35,6 +45,14 @@ export const Modal: FC<ModalProps> = (props) => {
             closeHandler();
         }
     }, [closeHandler]);
+
+    useEffect(() => {
+        setIsMounted(isOpen);
+
+        if (isMounted) {
+            setIsOpened(true);
+        }
+    }, [isMounted, isOpen]);
 
     useEffect(() => {
         if (isOpen) {
@@ -45,6 +63,10 @@ export const Modal: FC<ModalProps> = (props) => {
             window.removeEventListener('keydown', onKeyDown);
         };
     }, [isOpen, onKeyDown]);
+
+    if (lazy && !isMounted) {
+        return null;
+    }
 
     return (
         <Portal>
