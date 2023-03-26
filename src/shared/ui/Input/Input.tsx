@@ -26,6 +26,7 @@ export const Input = memo((props: InputProps) => {
         type = 'text',
         placeholder,
         name,
+        disabled,
         autoFocus = false,
         withButton = false,
         ...otherProps
@@ -48,6 +49,7 @@ export const Input = memo((props: InputProps) => {
     useEffect(() => {
         if (value) {
             setIsButtonVisible(true);
+            setOnFocus(true);
         }
     }, [value]);
 
@@ -69,7 +71,10 @@ export const Input = memo((props: InputProps) => {
     return (
         <div className={cls.inputWrapper}>
             <label
-                className={classNames(cls.label, { [cls.focus]: focus }, [])}
+                className={classNames(cls.label, {
+                    [cls.focus]: focus,
+                    [cls.disabled]: disabled,
+                }, [])}
                 htmlFor={name}
             >
                 {placeholder}
@@ -79,7 +84,10 @@ export const Input = memo((props: InputProps) => {
                 className={
                     classNames(
                         cls.Input,
-                        { [cls.withPlaceholder]: placeholder },
+                        {
+                            [cls.withPlaceholder]: placeholder,
+                            [cls.disabled]: disabled,
+                        },
                         [className],
                         )
                     }
@@ -89,6 +97,7 @@ export const Input = memo((props: InputProps) => {
                 onFocus={handleOnFocus}
                 onBlur={handleOnBlur}
                 onChange={handleOnChange}
+                disabled={disabled}
                 {...otherProps}
             />
             {withButton && isButtonVisible && value && (
@@ -96,6 +105,7 @@ export const Input = memo((props: InputProps) => {
                     onClick={handleClearButtonClick}
                     theme={ThemeButton.CLEAR}
                     className={cls.clearButton}
+                    disabled={disabled}
                     icon={<XMark />}
                 />
             )}

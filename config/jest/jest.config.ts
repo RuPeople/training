@@ -4,8 +4,9 @@
  */
 
 import path from 'path';
+import type { Config } from 'jest';
 
-export default {
+const config: Config = {
     globals: {
         __IS_DEV__: true,
     },
@@ -25,9 +26,10 @@ export default {
     moduleDirectories: [
         'node_modules',
         '<rootDir>src',
+        '<rootDir>src/entities',
     ],
     modulePaths: [
-        '<rootDir>src',
+        'node_modules',
     ],
     testMatch: [
         '<rootDir>src/**/*(*.)@(spec|test).[tj]s?(x)',
@@ -40,6 +42,9 @@ export default {
         '\\.(s?css)$': 'identity-obj-proxy',
         '\\.svg': path.resolve(__dirname, 'jestEmptyComponent.tsx'),
     },
+};
+
+export default config;
 
     // Indicates whether the coverage information should be collected while executing the test
     // collectCoverage: false,
@@ -191,4 +196,3 @@ export default {
 
     // Whether to use watchman for file crawling
     // watchman: true,
-};

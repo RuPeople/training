@@ -107,3 +107,10 @@ OnlyIcon.args = {
     children: '',
     icon: <GearShape />,
 };
+
+export const Disabled = Template.bind({});
+Disabled.args = {
+    children: 'Text',
+    icon: <GearShape />,
+    disabled: true,
+};
