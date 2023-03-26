@@ -6,7 +6,7 @@ import { memo, useCallback } from 'react';
 import { useSelector } from 'react-redux';
 import { useAppDispatch } from 'shared/lib/store/useAppDispatch';
 import { Loader, LoaderSize, LoaderTheme } from 'shared/ui/Loader/Loader';
-import { Text, TextTheme } from 'shared/ui/Title/Text';
+import { Text, TextTheme } from 'shared/ui/Text/Text';
 import { DynamicModuleLoader, ReducersList } from 'shared/lib/components/DynamicModuleLoader';
 import { getLoginUsername } from '../../model/selectors/getLoginUsername';
 import { getLoginPassword } from '../../model/selectors/getLoginPassword';
