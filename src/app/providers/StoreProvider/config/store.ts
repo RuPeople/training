@@ -2,8 +2,8 @@ import { configureStore, ReducersMapObject } from '@reduxjs/toolkit';
 import { StateSchema } from './StateSchema';
 // Почему-то тесты валятся от абсолютных импортов
 // TODO: Пофиксить проблему с абсолютными импортами
-import { counterReducer } from '../../../../entity/Counter';
-import { userReducer } from '../../../../entity/User';
+import { counterReducer } from '../../../../entities/Counter';
+import { userReducer } from '../../../../entities/User';
 
 export function createReduxStore(initialState?: StateSchema) {
     const rootReducers: ReducersMapObject<StateSchema> = {
