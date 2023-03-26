@@ -1,4 +1,7 @@
 {
     "Username": "Логин",
-    "Password": "Пароль"
+    "Password": "Пароль",
+    "Log in": "Войти",
+    "Incorrect username or password": "Неверное имя пользователя или пароль",
+    "Hello user": "Здравствуйте, "
 }

@@ -11,7 +11,8 @@
         "moduleResolution": "node",
         "baseUrl": ".",
         "paths": {
-            "*": ["./src/*"]
+            "*": ["./src/*"],
+            "entities/": ["entities/*"]
         },
         // import вместо require в webpack.config
         "esModuleInterop": true,
