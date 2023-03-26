@@ -3,3 +3,14 @@
     flex-direction: column;
     row-gap: 10px;
 }
+
+.title {
+    font: var(--font-l);
+    color: var(--primary-color);
+    margin-bottom: 16px;
+    font-weight: var(--font-weight-bold);
+}
+
+.button {
+    margin-top: 8px;
+}

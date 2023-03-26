@@ -25,11 +25,12 @@ export enum ButtonBorderRadius {
 }
 
 interface PropsT extends ButtonHTMLAttributes<HTMLButtonElement> {
-    className?: string
-    theme?: ThemeButton
-    size?: ButtonSize
-    borderRadius?: ButtonBorderRadius
-    icon?: JSX.Element
+    className?: string;
+    theme?: ThemeButton;
+    size?: ButtonSize;
+    borderRadius?: ButtonBorderRadius;
+    icon?: JSX.Element;
+    disabled?: boolean;
 }
 
 export const Button: FC<PropsT> = (props) => {
@@ -40,6 +41,7 @@ export const Button: FC<PropsT> = (props) => {
         size = ButtonSize.M,
         borderRadius = ButtonBorderRadius.ROUND_S,
         icon = false,
+        disabled = false,
         ...restProps
     } = props;
 
@@ -48,12 +50,14 @@ export const Button: FC<PropsT> = (props) => {
         [cls[size]]: true,
         [cls[borderRadius]]: true,
         [cls.withIcon]: !!icon && !!children,
+        [cls.disabled]: disabled,
     };
 
     return (
         <button
             type="button"
             className={classNames(cls.Button, mods, [className])}
+            disabled={disabled}
             {...restProps}
         >
             {icon && (
