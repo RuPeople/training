@@ -30,7 +30,6 @@ export const loginByUsername = createAsyncThunk<
 
             return response.data;
         } catch (e) {
-            console.log(e);
             return thunkApi.rejectWithValue(i18n.t(
                 'Incorrect username or password',
                 { ns: 'login' },
