@@ -1,6 +1,6 @@
 import { classNames } from 'shared/lib/classNames/classNames';
 import React, {
- ButtonHTMLAttributes, FC,
+    ButtonHTMLAttributes, memo,
 } from 'react';
 import { Icon } from 'shared/ui/Icon/Icon';
 import cls from './Button.module.scss';
@@ -24,7 +24,7 @@ export enum ButtonBorderRadius {
     ANGLED = 'angled',
 }
 
-interface PropsT extends ButtonHTMLAttributes<HTMLButtonElement> {
+interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
     className?: string;
     theme?: ThemeButton;
     size?: ButtonSize;
@@ -33,7 +33,7 @@ interface PropsT extends ButtonHTMLAttributes<HTMLButtonElement> {
     disabled?: boolean;
 }
 
-export const Button: FC<PropsT> = (props) => {
+export const Button = memo((props: ButtonProps) => {
     const {
         className,
         children,
@@ -66,4 +66,4 @@ export const Button: FC<PropsT> = (props) => {
             {children}
         </button>
     );
-};
+});

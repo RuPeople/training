@@ -1,0 +1,18 @@
+.SidebarItem {
+    display: grid;
+    grid-template-columns: repeat(2, auto);
+    justify-content: start
+}
+
+.linkIcon {
+    margin-right: 9px;
+}
+
+.SidebarItem.collapsed {
+    justify-content: center;
+    grid-row-gap: 0;
+
+    .linkIcon {
+        margin-right: 0;
+    }
+}
