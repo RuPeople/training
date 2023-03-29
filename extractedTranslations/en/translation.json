@@ -13,6 +13,7 @@
   "NotFoundPage": "NotFoundPage",
   "Password": "Password",
   "Reload page": "Reload page",
+  "Test rerender": "Test rerender",
   "Throw error": "Throw error",
   "Toggle": "Toggle",
   "Uncaught error": "Uncaught error",

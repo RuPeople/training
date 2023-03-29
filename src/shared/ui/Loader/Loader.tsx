@@ -1,5 +1,6 @@
 import { classNames } from 'shared/lib/classNames/classNames';
 import './Loader.scss';
+import { memo } from 'react';
 
 interface LoaderProps {
     className?: string;
@@ -17,11 +18,11 @@ export enum LoaderSize {
     L = 'size_l',
 }
 
-export const Loader = ({ className, theme, size }: LoaderProps) => {
+export const Loader = memo(({ className, theme, size }: LoaderProps) => {
     return (
         <div className={classNames('lds-ripple', {}, [className, theme, size])}>
             <div />
             <div />
         </div>
     );
-};
+});
