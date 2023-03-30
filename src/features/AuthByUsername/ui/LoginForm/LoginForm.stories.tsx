@@ -14,7 +14,7 @@ export default {
     },
     decorators: [
         StoreDecorator({
-            login: { username: '123', password: 'asd' },
+            login: { username: '123', password: 'asd', isLoading: false },
         }),
     ],
 } as ComponentMeta<typeof LoginForm>;

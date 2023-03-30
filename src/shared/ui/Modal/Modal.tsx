@@ -1,4 +1,4 @@
-import { classNames } from 'shared/lib/classNames/classNames';
+import { classNames, Mods } from 'shared/lib/classNames/classNames';
 import {
     FC, PropsWithChildren, useCallback, useEffect, useRef, useState,
 } from 'react';
@@ -8,7 +8,7 @@ import cls from './Modal.module.scss';
 
 interface ModalProps extends PropsWithChildren {
     className?: string;
-    isOpen?: boolean;
+    isOpen: boolean;
     onClose?: () => void;
     lazy?: boolean;
 }
@@ -36,7 +36,7 @@ export const Modal: FC<ModalProps> = (props) => {
         e.stopPropagation();
     };
 
-    const mods: Record<string, boolean> = {
+    const mods: Mods = {
         [cls.opened]: isOpened,
     };
 

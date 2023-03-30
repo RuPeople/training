@@ -76,7 +76,9 @@ const LoginForm = memo(({ className, onSuccess }: LoginFormProps) => {
                 <Button
                     onClick={onClickLogin}
                     disabled={isLoading}
-                    icon={isLoading && <Loader theme={LoaderTheme.SECONDARY} size={LoaderSize.M} />}
+                    icon={isLoading
+                        ? <Loader theme={LoaderTheme.SECONDARY} size={LoaderSize.M} />
+                        : undefined}
                     className={cls.button}
                 >
                     {!isLoading && t('Log in')}
