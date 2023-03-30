@@ -1,4 +1,4 @@
-import { classNames } from 'shared/lib/classNames/classNames';
+import { classNames, Mods } from 'shared/lib/classNames/classNames';
 import { cloneElement, memo } from 'react';
 import cls from './Icon.module.scss';
 
@@ -19,7 +19,7 @@ export const Icon = memo((props: IconProps) => {
         className, icon, size = IconSize.M,
     } = props;
 
-    const mods: Record<string, boolean> = {
+    const mods: Mods = {
         [cls[size]]: true,
     };
 

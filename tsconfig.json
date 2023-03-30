@@ -8,6 +8,7 @@
         "jsx": "react-jsx",
         //позволяет не только ts, но и js
         "allowJs": true,
+        "strict": true,
         "moduleResolution": "node",
         "baseUrl": ".",
         "paths": {

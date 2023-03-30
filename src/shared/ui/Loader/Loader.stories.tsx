@@ -24,5 +24,4 @@ PrimarySizeM.args = {
 export const Secondary = Template.bind({});
 Secondary.args = {
     theme: LoaderTheme.SECONDARY,
-    style: { backgroundColor: 'red' },
 };

@@ -11,11 +11,11 @@ export default ({ config }: { config: webpack.Configuration }) => {
         entry: '',
         src: path.resolve(__dirname, '..', '..', 'src'),
     };
-    config.resolve.modules = [paths.src, 'node_modules'];
-    config.resolve.extensions.push('.ts', 'tsx');
+    config.resolve!.modules = [paths.src, 'node_modules'];
+    config.resolve!.extensions!.push('.ts', 'tsx');
 
-    // eslint-disable-next-line no-param-reassign
-    config.module.rules = config.module.rules.map((rule: RuleSetRule) => {
+    const rules = config.module!.rules as RuleSetRule[];
+    config.module!.rules = rules.map((rule) => {
         if (/svg/.test(rule.test as string)) {
             return { ...rule, exclude: /\.svg$/i };
         }
@@ -23,14 +23,15 @@ export default ({ config }: { config: webpack.Configuration }) => {
         return rule;
     });
 
-    config.plugins.push(
+    config.plugins!.push(
         new webpack.DefinePlugin({
             __IS_DEV__: true,
+            __API__: JSON.stringify(''),
         }),
     );
 
-    config.module.rules.push(buildSvgLoader());
-    config.module.rules.push(buildCssLoader(true));
+    config.module!.rules.push(buildSvgLoader());
+    config.module!.rules.push(buildCssLoader(true));
 
     return config;
 };

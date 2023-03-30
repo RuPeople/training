@@ -1,13 +1,16 @@
 import React, {
     InputHTMLAttributes, memo, useEffect, useRef, useState,
 } from 'react';
-import { classNames } from 'shared/lib/classNames/classNames';
+import { classNames, Mods } from 'shared/lib/classNames/classNames';
 import { Omit } from '@reduxjs/toolkit/dist/tsHelpers';
 import { Button, ThemeButton } from 'shared/ui/Button/Button';
 import XMark from 'shared/assets/icons/xmark.svg';
 import cls from './Input.module.scss';
 
-type HTMLInputProps = Omit<InputHTMLAttributes<HTMLInputElement>, 'value' | 'onChange' | 'name'>;
+type HTMLInputProps = Omit<
+    InputHTMLAttributes<HTMLInputElement>,
+    'value' | 'onChange' | 'name' | 'placeholder'
+>;
 
 interface InputProps extends HTMLInputProps {
     className?: string;
@@ -16,6 +19,7 @@ interface InputProps extends HTMLInputProps {
     onChange?: (value: string) => void;
     autoFocus?: boolean
     withButton?: boolean
+    placeholder?: string | null
 }
 
 export const Input = memo((props: InputProps) => {
@@ -26,7 +30,7 @@ export const Input = memo((props: InputProps) => {
         type = 'text',
         placeholder,
         name,
-        disabled,
+        disabled = false,
         autoFocus = false,
         withButton = false,
         ...otherProps
@@ -42,7 +46,8 @@ export const Input = memo((props: InputProps) => {
     useEffect(() => {
         if (autoFocus) {
             setOnFocus(true);
-            ref.current.focus();
+
+            ref.current?.focus();
         }
     }, [autoFocus, ref]);
 
@@ -68,13 +73,20 @@ export const Input = memo((props: InputProps) => {
         setOnFocus(false);
     };
 
+    const labelMods: Mods = {
+        [cls.focus]: focus,
+        [cls.disabled]: disabled,
+    };
+
+    const inputMods: Mods = {
+        [cls.withPlaceholder]: !!placeholder,
+        [cls.disabled]: disabled,
+    };
+
     return (
         <div className={cls.inputWrapper}>
             <label
-                className={classNames(cls.label, {
-                    [cls.focus]: focus,
-                    [cls.disabled]: disabled,
-                }, [])}
+                className={classNames(cls.label, labelMods)}
                 htmlFor={name}
             >
                 {placeholder}
@@ -82,15 +94,8 @@ export const Input = memo((props: InputProps) => {
             <input
                 ref={ref}
                 className={
-                    classNames(
-                        cls.Input,
-                        {
-                            [cls.withPlaceholder]: placeholder,
-                            [cls.disabled]: disabled,
-                        },
-                        [className],
-                        )
-                    }
+                    classNames(cls.Input, inputMods, [className])
+}
                 value={value}
                 type={type}
                 id={name}

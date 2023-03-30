@@ -1,9 +1,9 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
-import axios from 'axios';
 import i18n from 'i18next';
 import { USER_LOCALSTORAGE_KEY } from 'shared/const/localstorage';
 // jest отказывается воспринимать абсолютный путь
 // TODO: Пофиксить абсолютный путь в jest
+import { ThunkConfig } from 'app/providers/StoreProvider';
 import { User, userActions } from '../../../../entities/User';
 
 interface LoginByUsernameProps {
@@ -14,23 +14,29 @@ interface LoginByUsernameProps {
 export const loginByUsername = createAsyncThunk<
     User,
     LoginByUsernameProps,
-    { rejectValue: string }
+    ThunkConfig<string>
 >(
     'login/loginByUsername',
-    async (authData, thunkApi) => {
+    async (authData, thunkAPI) => {
+        const { extra, dispatch, rejectWithValue } = thunkAPI;
+
         try {
-            const response = await axios.post<User>('http://localhost:8000/login', authData);
+            const response = await extra.api.post<User>('/login', authData);
 
             if (!response.data) {
                 throw new Error();
             }
 
             localStorage.setItem(USER_LOCALSTORAGE_KEY, JSON.stringify(response.data));
-            thunkApi.dispatch(userActions.setAuthData(response.data));
+            dispatch(userActions.setAuthData(response.data));
+
+            if (extra.navigate) {
+                extra?.navigate('/profile');
+            }
 
             return response.data;
         } catch (e) {
-            return thunkApi.rejectWithValue(i18n.t(
+            return rejectWithValue(i18n.t(
                 'Incorrect username or password',
                 { ns: 'login' },
             ));
