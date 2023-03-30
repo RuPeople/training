@@ -1,5 +1,5 @@
 import { classNames } from 'shared/lib/classNames/classNames';
-import { cloneElement } from 'react';
+import { cloneElement, memo } from 'react';
 import cls from './Icon.module.scss';
 
 interface IconProps {
@@ -14,7 +14,7 @@ export enum IconSize {
     L = 'size_l',
 }
 
-export const Icon = (props: IconProps) => {
+export const Icon = memo((props: IconProps) => {
     const {
         className, icon, size = IconSize.M,
     } = props;
@@ -30,4 +30,4 @@ export const Icon = (props: IconProps) => {
             className: classNames(cls.Icon, mods, [className]),
         },
     );
-};
+});

@@ -1,5 +1,5 @@
 import { classNames } from 'shared/lib/classNames/classNames';
-import { ReactNode } from 'react';
+import { memo, ReactNode } from 'react';
 import cls from './Text.module.scss';
 
 interface TextProps {
@@ -17,7 +17,7 @@ export enum TextTheme {
     DANGER = 'danger',
 }
 
-export const Text = (props: TextProps) => {
+export const Text = memo((props: TextProps) => {
     const {
         className, as: ElementType = 'p', children, theme,
     } = props;
@@ -31,4 +31,4 @@ export const Text = (props: TextProps) => {
             {children}
         </ElementType>
     );
-};
+});
