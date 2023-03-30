@@ -1,4 +1,4 @@
-import { classNames } from 'shared/lib/classNames/classNames';
+import { classNames, Mods } from 'shared/lib/classNames/classNames';
 import { memo, ReactNode } from 'react';
 import cls from './Text.module.scss';
 
@@ -19,10 +19,10 @@ export enum TextTheme {
 
 export const Text = memo((props: TextProps) => {
     const {
-        className, as: ElementType = 'p', children, theme,
+        className, as: ElementType = 'p', children, theme = TextTheme.PRIMARY,
     } = props;
 
-    const mods: Record<string, boolean> = {
+    const mods: Mods = {
         [cls[theme]]: true,
     };
 

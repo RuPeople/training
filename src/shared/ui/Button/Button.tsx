@@ -1,4 +1,4 @@
-import { classNames } from 'shared/lib/classNames/classNames';
+import { classNames, Mods } from 'shared/lib/classNames/classNames';
 import React, {
     ButtonHTMLAttributes, memo,
 } from 'react';
@@ -37,7 +37,7 @@ export const Button = memo((props: ButtonProps) => {
     const {
         className,
         children,
-        theme,
+        theme = ThemeButton.PRIMARY,
         size = ButtonSize.M,
         borderRadius = ButtonBorderRadius.ROUND_S,
         icon = false,
@@ -45,7 +45,7 @@ export const Button = memo((props: ButtonProps) => {
         ...restProps
     } = props;
 
-    const mods: Record<string, boolean> = {
+    const mods: Mods = {
         [cls[theme]]: true,
         [cls[size]]: true,
         [cls[borderRadius]]: true,

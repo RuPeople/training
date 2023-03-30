@@ -3,7 +3,7 @@ import { Modal } from 'shared/ui/Modal/Modal';
 
 describe('Modal', () => {
     test('Test render', () => {
-        render(<Modal>TEST</Modal>);
+        render(<Modal isOpen>TEST</Modal>);
         expect(screen.getByTestId('modal')).toBeInTheDocument();
     });
 });

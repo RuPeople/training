@@ -1,0 +1,24 @@
+.ProfileCard {
+    border: 2px solid var(--primary-color);
+    padding: 20px;
+    border-radius: var(--border-radius-m);
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    row-gap: 20px;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+}
+
+.title {
+    font: var(--font-xl);
+}
+
+.data {
+    row-gap: 20px;
+    column-gap: 20px;
+    display: flex;
+}
