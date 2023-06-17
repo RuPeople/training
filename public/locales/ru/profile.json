@@ -3,5 +3,10 @@
     "Edit": "Редактировать",
     "Firstname": "Имя",
     "Lastname": "Фамилия",
-    "Error fetching profile": "Ошибка получаения данных профиля"
+    "Age": "Возраст",
+    "City": "Город",
+    "Error fetching profile": "Ошибка получения данных профиля",
+    "Error updating profile": "Ошибка сохранения данных профиля",
+    "Save": "Сохранить",
+    "Cancel": "Отменить"
 }
