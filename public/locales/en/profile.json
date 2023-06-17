@@ -3,5 +3,10 @@
     "Edit": "Edit",
     "Firstname": "Firstname",
     "Lastname": "Lastname",
-    "Error fetching profile": "Error fetching profile"
+    "Age": "Age",
+    "City": "City",
+    "Error fetching profile": "Error fetching profile",
+    "Error updating profile": "Error updating profile",
+    "Save": "Save",
+    "Cancel": "Cancel"
 }
