@@ -1,5 +1,5 @@
 import React, {
-    InputHTMLAttributes, memo, useEffect, useRef, useState,
+ InputHTMLAttributes, memo, useEffect, useRef, useState,
 } from 'react';
 import { classNames, Mods } from 'shared/lib/classNames/classNames';
 import { Omit } from '@reduxjs/toolkit/dist/tsHelpers';
@@ -9,17 +9,18 @@ import cls from './Input.module.scss';
 
 type HTMLInputProps = Omit<
     InputHTMLAttributes<HTMLInputElement>,
-    'value' | 'onChange' | 'name' | 'placeholder'
+    'value' | 'onChange' | 'name' | 'placeholder' | 'readonly'
 >;
 
 interface InputProps extends HTMLInputProps {
     className?: string;
     name: string;
-    value?: string;
+    value?: string | number;
     onChange?: (value: string) => void;
-    autoFocus?: boolean
-    withButton?: boolean
-    placeholder?: string | null
+    autoFocus?: boolean;
+    withButton?: boolean;
+    placeholder?: string | null;
+    readonly ?: boolean;
 }
 
 export const Input = memo((props: InputProps) => {
@@ -27,12 +28,13 @@ export const Input = memo((props: InputProps) => {
         className,
         value,
         onChange,
-        type = 'text',
         placeholder,
         name,
+        type,
         disabled = false,
         autoFocus = false,
         withButton = false,
+        readonly = false,
         ...otherProps
     } = props;
     const [focus, setOnFocus] = useState(false);
@@ -63,7 +65,7 @@ export const Input = memo((props: InputProps) => {
     };
 
     const handleOnBlur = () => {
-        if (!value) {
+        if (!value && value !== 0) {
             setOnFocus(false);
         }
     };
@@ -81,6 +83,7 @@ export const Input = memo((props: InputProps) => {
     const inputMods: Mods = {
         [cls.withPlaceholder]: !!placeholder,
         [cls.disabled]: disabled,
+        [cls.readonly]: readonly,
     };
 
     return (
@@ -95,10 +98,11 @@ export const Input = memo((props: InputProps) => {
                 ref={ref}
                 className={
                     classNames(cls.Input, inputMods, [className])
-}
+                }
                 value={value}
-                type={type}
                 id={name}
+                type={type}
+                readOnly={readonly}
                 onFocus={handleOnFocus}
                 onBlur={handleOnBlur}
                 onChange={handleOnChange}

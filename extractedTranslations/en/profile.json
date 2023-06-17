@@ -1,7 +1,16 @@
 {
+  "Age": "",
+  "Avatar": "",
+  "Cancel": "",
+  "City": "",
+  "Currency": "",
   "Edit": "",
+  "Error fetching profile": "Error fetching profile",
+  "Error updating profile": "Error updating profile",
   "Firstname": "",
   "Lastname": "",
   "Profile": "",
-  "Reload page": ""
+  "Reload page": "",
+  "Save": "",
+  "Username": ""
 }
